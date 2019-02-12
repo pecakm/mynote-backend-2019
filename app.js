@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 
 const CONSTANTS = require('./api/helpers/constants');
 const noteRoutes = require('./api/routes/notes');
+const userRoutes = require('./api/routes/users');
 
 mongoose.connect(CONSTANTS.DATABASE_URL, {
     useNewUrlParser: true
@@ -30,6 +31,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/notes', noteRoutes);
+app.use('/users', userRoutes);
 
 app.use((req, res, next) => {
     const error = new Error('Not found');
