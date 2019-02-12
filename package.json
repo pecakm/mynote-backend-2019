@@ -1,0 +1,19 @@
+{
+  "name": "mynote-backend",
+  "version": "1.0.0",
+  "description": "myNote (backend). Created by IT Pulse. All rights reserved.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "IT Pulse",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.11",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.18.10"
+  }
+}
