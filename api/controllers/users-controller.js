@@ -42,9 +42,8 @@ function hashPasswordAndRegisterUser(req, res) {
 }
 
 function createUser(hash, req, res) {
-    const id = new mongoose.Types.ObjectId;
     const user = new User({
-        _id: id,
+        _id: new mongoose.Types.ObjectId,
         email: req.body.email,
         password: hash
     });
@@ -85,7 +84,5 @@ function returnToken(user, res) {
         { expiresIn: CONSTANTS.TOKEN_EXP }
     );
 
-    res.status(200).json({
-        token: token
-    });
+    res.status(200).json(token);
 }
