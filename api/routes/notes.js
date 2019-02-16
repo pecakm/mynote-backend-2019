@@ -4,6 +4,7 @@ const NotesController = require('../controllers/notes-controller');
 
 const router = express.Router();
 
-router.get('/all', checkAuth, NotesController.getAll);
+router.get('/:timestamp', checkAuth, NotesController.getNotes);
+router.post('/save', checkAuth, NotesController.save);
 
 module.exports = router;
