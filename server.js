@@ -1,4 +1,16 @@
+require('dotenv').config();
 const http = require('http');
+const https = require('https');
+const fs = require('fs');
 const app = require('./app');
 
-http.createServer(app).listen(3002);
+if (process.env.PRODUCTION === 'true') {
+    const sslOptions = {
+        key: fs.readFileSync('./key.pem'),
+        cert: fs.readFileSync('./cert.pem')
+    };
+    
+    https.createServer(sslOptions, app).listen(3000);
+} else {
+    http.createServer(app).listen(3000);
+}

@@ -1,8 +1,8 @@
-const ENV_VARS = require('../../env_vars');
+require('dotenv').config();
 
 const CONSTANTS = {
-    DATABASE_URL: ENV_VARS.DATABASE_URL,
-    JWT_SECRET: ENV_VARS.JWT_SECRET,
+    DATABASE_URL: process.env.DATABASE_URL,
+    JWT_SECRET: process.env.JWT_SECRET,
     TOKEN_EXP: 604800, // 7 days in seconds
     TIMESTAMP_24_HOURS: 86400000 // 24 hours in miliseconds
 };
