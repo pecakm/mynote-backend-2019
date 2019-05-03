@@ -11,12 +11,4 @@ const userSchema = mongoose.Schema({
     password: String
 });
 
-userSchema.statics.save = (user, res) => {
-    user.save().then(updatedUser => {
-        res.status(201).json({ message: 'OK' });
-    }).catch(error => {
-        res.status(500).json({ error: error });
-    });
-}
-
 module.exports = mongoose.model('User', userSchema);

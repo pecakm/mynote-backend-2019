@@ -48,7 +48,11 @@ function createUser(hash, req, res) {
         password: hash
     });
 
-    User.save(user, res);
+    user.save().then(() => {
+        res.status(201).json({ message: 'OK' });
+    }).catch(error => {
+        res.status(500).json({ error: error });
+    });
 }
 
 exports.login = (req, res, next) => {
