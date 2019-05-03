@@ -3,9 +3,9 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const CONSTANTS = require('./api/helpers/constants');
-const noteRoutes = require('./api/routes/notes');
-const userRoutes = require('./api/routes/users');
+const CONSTANTS = require('./src/helpers/constants');
+const noteRoutes = require('./src/routes/notes');
+const userRoutes = require('./src/routes/users');
 
 mongoose.connect(CONSTANTS.DATABASE_URL, {
     useNewUrlParser: true
