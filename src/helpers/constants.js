@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 const CONSTANTS = {
-    PORT: 3000,
+    PORT: process.env.PORT,
     DATABASE_URL: process.env.DATABASE_URL,
     JWT_SECRET: process.env.JWT_SECRET,
     TOKEN_EXP: 604800, // 7 days in seconds
