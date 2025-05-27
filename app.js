@@ -3,11 +3,9 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const CONSTANTS = require('./api/helpers/constants');
-const reportRoutes = require('./api/routes/reports');
-const userRoutes = require('./api/routes/users');
-const poiRoutes = require('./api/routes/pois');
-const authRoutes = require('./api/routes/auth');
+const CONSTANTS = require('./src/helpers/constants');
+const noteRoutes = require('./src/routes/notes');
+const userRoutes = require('./src/routes/users');
 
 mongoose.connect(CONSTANTS.DATABASE_URL, {
     useNewUrlParser: true
@@ -32,10 +30,8 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use('/reports', reportRoutes);
+app.use('/notes', noteRoutes);
 app.use('/users', userRoutes);
-app.use('/pois', poiRoutes);
-app.use('/auth', authRoutes);
 
 app.use((req, res, next) => {
     const error = new Error('Not found');
